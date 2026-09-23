@@ -5,6 +5,7 @@ import os
 import json
 import hashlib
 from datetime import datetime
+from extra_quotes import EXTRA_QUOTES
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DOCS_DIR = os.path.join(BASE_DIR, "docs")
@@ -509,6 +510,9 @@ def slugify(text):
     """生成URL友好的slug"""
     # 用hash生成简短唯一ID
     return hashlib.md5(text.encode('utf-8')).hexdigest()[:8]
+
+# 合并额外名言
+QUOTES = QUOTES + EXTRA_QUOTES
 
 # 名言加ID
 for i, q in enumerate(QUOTES):
